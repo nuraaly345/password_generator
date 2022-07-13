@@ -20,5 +20,5 @@ from generatorapp.views import home, generator
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home),
-    path('generator/', generator),
+    path('generator/', generator, name='generator'),
     ]
