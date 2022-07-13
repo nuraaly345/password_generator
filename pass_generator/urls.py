@@ -15,10 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from generatorapp.views import home, generator
+from generatorapp.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home),
+    path('', home, name='home'),
     path('generator/', generator, name='generator'),
+    path('about/', about, name="about"),
     ]
