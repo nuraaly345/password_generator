@@ -8,8 +8,17 @@ def home(request):
 def generator(request):
 
     alphabet = list('abcdefghiklmnopqrstvxyz')
-    number = 10
+    number = int(request.GET.get('length', 12))
     password = ''
+
+    if request.GET.get('uppercase'):
+        alphabet.extend(list('ABCDEFGHIKLMNOPQRSTVXYZ'))
+    
+    if request.GET.get('numbers'):
+        alphabet.extend(list('0123456789'))
+
+    if request.GET.get('special'):
+        alphabet.extend(list('!@#$%^&*'))
 
     for i in range(number):
         password+= random.choice(alphabet)
